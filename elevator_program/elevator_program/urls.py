@@ -13,9 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django import views
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from elevator.views import ElevatorViewSet
+
+router = routers.DefaultRouter()
+router.register(r'elevators', ElevatorViewSet)
+#router.register(r'requests', RequestViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #added django-rest-framework urls to urlpatterns
+    path('api-auth/', include('rest_framework.urls')),
+    #added elevator app urls to urlpatterns
+    path('api/elevator/', views.ElevatorViewSet.as_view(), name='elevator-api'),
 ]

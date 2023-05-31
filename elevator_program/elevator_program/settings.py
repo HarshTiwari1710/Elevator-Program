@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #added django-rest-framework
+    'rest_framework',
+    #added elevator app
+    'elevator',
 ]
 
 MIDDLEWARE = [
