@@ -28,5 +28,5 @@ urlpatterns = [
     #added django-rest-framework urls to urlpatterns
     path('api-auth/', include('rest_framework.urls')),
     #added elevator app urls to urlpatterns
-    path('api/elevator/', views.ElevatorViewSet.as_view(), name='elevator-api'),
+    path('', include(router.urls)),
 ]
